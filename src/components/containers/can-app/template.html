@@ -7,7 +7,44 @@
 
   <can-button on-click="startTour">Take a tour</can-button>
 </section>
+<section>
 
+  <can-loan-calculator loan-type="{{loanType}}" principle="{{principle}}" annuity-interval-in-months="{{annuityIntervalInMonths}}"
+    loan-term-in-months="{{loanTermInMonths}}" interest-rate="{{interestRate}}" chart-columns="{{chartColumns}}"
+    chart-rows="{{chartRows}}" repayments="{{repayments}}" grace-period="{{gracePeriod}}" terms="{{terms}}"></can-loan-calculator>
+
+  <h2>Type:
+    <select class="" name="" value="{{loanType::change}}">
+      <option value="linear">Lineair</option>
+      <option value="annuity">Annuitair</option>
+      <option value="bullet">Bullet</option>
+    </select>
+  </h2>
+  <h2>Opgehaalde bedrag: <input type="number" name="principle" value="{{principle::change}}"> EURO</h2>
+  <h2>Annuiteit interval:
+    <select class="" name="" value="{{annuityIntervalInMonths::change}}">
+      <option value="3">3 maanden</option>
+      <option value="6">half jaar</option>
+      <option value="12">jaarlijks</option>
+    </select>
+  </h2>
+  <h2>Leningtijd: <input type="number" step="12" name="annuityIntervalInMonths" value="{{loanTermInMonths::change}}">
+    [[loanTermInMonths]] maanden</h2>
+  <h2>Aflosvrije periode: <input type="number" step="12" name="gracePeriod" value="{{gracePeriod::change}}">
+    [[gracePeriod]] maanden</h2>
+  <h2>Rente (per jaar): <input type="number" name="interestRate" value="{{interestRate::change}}">%</h2>
+  <h2>[[terms]] aflossingen</h2>
+
+  <h2>Terugbetalingschema</h2>
+
+  <ul>
+    <template is="dom-repeat" items="[[repayments]]" index-as="index">
+      <li>[[item.interestPercentage]]% [[item.interestAmount]]E -- [[item.principlePercentage]]%
+        [[item.principleAmount]]E -- totaal: [[item.totalCurrentPayment]]E</li>
+    </template>
+  </ul>
+
+</section>
 <dom-if if=[[updateReady]]>
   <template>
     <can-button on-click="reload" class="UpdateReadyAlert">Update ready, reload!</can-button>
@@ -17,5 +54,3 @@
 <aside class="Meta">
   v[[appVersion]] - ENV: [[ENV]]
 </aside>
-
-

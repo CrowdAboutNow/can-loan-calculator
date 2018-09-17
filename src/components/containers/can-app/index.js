@@ -4,6 +4,7 @@ import {PolymerElement, html} from '@polymer/polymer/polymer-element';
 import css from './style.pcss';
 import template from './template.html';
 import '../../dumbs/can-button';
+import '../can-loan-calculator';
 
 export default class CanApp extends PolymerElement {
   static get properties() {

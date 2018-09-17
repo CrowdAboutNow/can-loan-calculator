@@ -633,6 +633,12 @@
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@polymer/esm-amd-loader/-/esm-amd-loader-1.0.2.tgz#6a6c26bd3293ce8c02765752e5581f2a4ea7e038"
 
+"@polymer/iron-ajax@^3.0.0-pre.18":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@polymer/iron-ajax/-/iron-ajax-3.0.1.tgz#831781be31ced011ac7243a46e34a775a4bb3133"
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
 "@polymer/polymer@3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.0.3.tgz#4d3216b8249631a81ff8db5f818cad77a36239a8"
@@ -5210,6 +5216,17 @@ gonzales-pe@4.2.3:
   resolved "https://registry.yarnpkg.com/gonzales-pe/-/gonzales-pe-4.2.3.tgz#41091703625433285e0aee3aa47829fc1fbeb6f2"
   dependencies:
     minimist "1.1.x"
+
+google-chart-polymer-3@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/google-chart-polymer-3/-/google-chart-polymer-3-3.0.1.tgz#570ff217477db91c6bd16a33e0ec61bf1749e357"
+  dependencies:
+    "@polymer/iron-ajax" "^3.0.0-pre.18"
+    "@polymer/polymer" "^3.0.0"
+
+google-charts@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/google-charts/-/google-charts-1.5.0.tgz#acf1412a10991e8b2d6e5eb53619f8136dc73e05"
 
 got@^6.7.1:
   version "6.7.1"
