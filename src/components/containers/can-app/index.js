@@ -3,9 +3,9 @@ import {PolymerElement, html} from '@polymer/polymer/polymer-element';
 
 import css from './style.pcss';
 import template from './template.html';
-import '../../dumbs/sk-button';
+import '../../dumbs/can-button';
 
-export default class SkApp extends PolymerElement {
+export default class CanApp extends PolymerElement {
   static get properties() {
     return {
       name: {
@@ -47,4 +47,4 @@ export default class SkApp extends PolymerElement {
   }
 }
 
-window.customElements.define('sk-app', SkApp);
+window.customElements.define('can-app', CanApp);

@@ -1,16 +1,16 @@
 <section class="Welcome">
-  <!-- <img class="SKLogo" draggable="false" src="assets/AnimatedSkeleton.svg" alt=""> -->
+  <img class="CANLogo" draggable="false" src="assets/AnimatedSkeleton.svg" alt="">
   <h1 class="Title">CrowdAboutNow lening calculator.</h1>
   <p>
     Bereken hier terugbetalingen aan de hand van verschillende lening variabelen
   </p>
 
-  <sk-button on-click="startTour">Take a tour</sk-button>
+  <can-button on-click="startTour">Take a tour</can-button>
 </section>
 
 <dom-if if=[[updateReady]]>
   <template>
-    <sk-button on-click="reload" class="UpdateReadyAlert">Update ready, reload!</sk-button>
+    <can-button on-click="reload" class="UpdateReadyAlert">Update ready, reload!</can-button>
   </template>
 </dom-if>
 

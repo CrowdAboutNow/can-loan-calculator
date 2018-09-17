@@ -16,20 +16,20 @@
 <body>
   <test-fixture id="element">
     <template>
-      <sk-app name="Sk App"></sk-app>
+      <can-app name="Can App"></can-app>
     </template>
   </test-fixture>
 
 
   <script>
-    suite('<sk-app>', () => {
+    suite('<can-app>', () => {
       let element;
       setup(() => {
         element = fixture('element');
       });
       suite('Test Properties', () => {
         test('Default Properties', () => {
-          assert.equal(element.name, 'Sk App');
+          assert.equal(element.name, 'Can App');
         });
       });
     });

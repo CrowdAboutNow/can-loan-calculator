@@ -1,6 +1,6 @@
 {
-  "name": "Polymer Skeleton",
-  "short_name": "Polymer SK",
+  "name": "CrowdAboutNow lening calculator",
+  "short_name": "can-loan-calculator",
   "icons": [{
       "src": "/assets/icons/polymer-skeleton-48x48.png",
       "sizes": "48x48",
