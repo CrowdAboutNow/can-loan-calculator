@@ -1,5 +1,5 @@
 {
-  "name": "can-load-calculator",
+  "name": "can-loan-calculator",
   "version": "0.0.2",
   "main": "src/index.js",
   "license": "MIT",
@@ -76,8 +76,10 @@
     "xo": "0.22.0"
   },
   "dependencies": {
+    "@polymer/iron-flex-layout": "3.0.1",
     "@polymer/polymer": "3.0.3",
     "@webcomponents/webcomponentsjs": "2.1.2",
+    "caas-loan-calculator": "https://github.com/CaaSElements/caas-loan-calculator",
     "google-chart-polymer-3": "3.0.1"
   }
 }

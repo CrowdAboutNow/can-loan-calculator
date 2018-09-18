@@ -4,7 +4,11 @@ import {PolymerElement, html} from '@polymer/polymer/polymer-element';
 import css from './style.pcss';
 import template from './template.html';
 import '../../dumbs/can-button';
-import '../can-loan-calculator';
+import 'caas-loan-calculator';
+import '@polymer/iron-flex-layout/iron-flex-layout-classes.js';
+import { } from '@polymer/polymer/lib/elements/dom-repeat.js';
+import { initGCharts } from 'google-chart-polymer-3/google-chart';
+initGCharts(() => { })
 
 export default class CanApp extends PolymerElement {
   static get properties() {

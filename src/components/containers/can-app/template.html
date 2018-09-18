@@ -1,50 +1,62 @@
-<section class="Welcome">
-  <img class="CANLogo" draggable="false" src="assets/AnimatedSkeleton.svg" alt="">
-  <h1 class="Title">CrowdAboutNow lening calculator.</h1>
-  <p>
-    Bereken hier terugbetalingen aan de hand van verschillende lening variabelen
-  </p>
+<style is="custom-style" include="iron-flex iron-flex-alignment"></style>
 
-  <can-button on-click="startTour">Take a tour</can-button>
-</section>
-<section>
+<caas-loan-calculator loan-type="{{loanType}}" principle="{{principle}}" annuity-interval-in-months="{{annuityIntervalInMonths}}"
+  loan-term-in-months="{{loanTermInMonths}}" interest-rate="{{interestRate}}" chart-columns="{{chartColumns}}"
+  chart-rows="{{chartRows}}" repayments="{{repayments}}" grace-period="{{gracePeriod}}" terms="{{terms}}">
+</caas-loan-calculator>
 
-  <can-loan-calculator loan-type="{{loanType}}" principle="{{principle}}" annuity-interval-in-months="{{annuityIntervalInMonths}}"
-    loan-term-in-months="{{loanTermInMonths}}" interest-rate="{{interestRate}}" chart-columns="{{chartColumns}}"
-    chart-rows="{{chartRows}}" repayments="{{repayments}}" grace-period="{{gracePeriod}}" terms="{{terms}}"></can-loan-calculator>
+<div class="layout horizontal">
+  <div>
+    <h2>Lening instellingen</h2>
 
-  <h2>Type:
-    <select class="" name="" value="{{loanType::change}}">
-      <option value="linear">Lineair</option>
-      <option value="annuity">Annuitair</option>
-      <option value="bullet">Bullet</option>
+    <label for="loanType">Type lening</label>
+    <select class="" name="loanType" value="{{loanType::change}}">
+        <option value="linear">Lineair</option>
+        <option value="annuity">Annuitair</option>
+        <option value="bullet">Bullet</option>
     </select>
-  </h2>
-  <h2>Opgehaalde bedrag: <input type="number" name="principle" value="{{principle::change}}"> EURO</h2>
-  <h2>Annuiteit interval:
-    <select class="" name="" value="{{annuityIntervalInMonths::change}}">
-      <option value="3">3 maanden</option>
-      <option value="6">half jaar</option>
-      <option value="12">jaarlijks</option>
-    </select>
-  </h2>
-  <h2>Leningtijd: <input type="number" step="12" name="annuityIntervalInMonths" value="{{loanTermInMonths::change}}">
-    [[loanTermInMonths]] maanden</h2>
-  <h2>Aflosvrije periode: <input type="number" step="12" name="gracePeriod" value="{{gracePeriod::change}}">
-    [[gracePeriod]] maanden</h2>
-  <h2>Rente (per jaar): <input type="number" name="interestRate" value="{{interestRate::change}}">%</h2>
-  <h2>[[terms]] aflossingen</h2>
+    <br>
+    <label for="principle">Op te halen bedrag</label>
+    <input type="number" name="principle" value="{{principle::change}}">
+    <br>
+    <label for="annuity">Aflossen per</label>
+      <select class="" name="annuity" value="{{annuityIntervalInMonths::change}}">
+        <option value="3">3 maanden</option>
+        <option value="6">half jaar</option>
+        <option value="12">jaarlijks</option>
+      </select>
+    <br>
+    <label for="annuityIntervalInMonths">Leningtijd in maanden</label>
+    <input type="number" step="12" name="annuityIntervalInMonths" value="{{loanTermInMonths::change}}">
+      [[loanTermInMonths]] maanden
+    <br>
+    <label for="gracePeriod">Aflosvrije periode</label>
+    <input type="number" step="12" name="gracePeriod" value="{{gracePeriod::change}}">
+      [[gracePeriod]] maanden
+    <br>
+    <label for="interestRate">Rente</label>
+    <input type="number" name="interestRate" value="{{interestRate::change}}">%</h2>
+    <h2>[[terms]] aflossingen</h2>
+  </div>
 
-  <h2>Terugbetalingschema</h2>
 
-  <ul>
-    <template is="dom-repeat" items="[[repayments]]" index-as="index">
-      <li>[[item.interestPercentage]]% [[item.interestAmount]]E -- [[item.principlePercentage]]%
-        [[item.principleAmount]]E -- totaal: [[item.totalCurrentPayment]]E</li>
-    </template>
-  </ul>
+  <div>
+      <h2>Terugbetalingschema</h2>
+      <google-chart type='area' options='{"title": "Terugbetalingen"}' cols='{{chartColumns}}' rows='{{chartRows}}'>
+      </google-chart>
+      <ol>
+        <dom-repeat items="{{repayments}}">
+          <template>
+            <li>[[item.interestPercentage]]% [[item.interestAmount]]E -- [[item.principlePercentage]]%
+              [[item.principleAmount]]E -- totaal: [[item.totalCurrentPayment]]E</li>
+          </template>
+        </dom-repeat>
+      </ol>
+  </div>
 
-</section>
+</div>
+
+
 <dom-if if=[[updateReady]]>
   <template>
     <can-button on-click="reload" class="UpdateReadyAlert">Update ready, reload!</can-button>
